@@ -2,7 +2,7 @@ var request = require('request');
 var fs = require('fs');
 var GITHUB_USER = "ryanpdaley";
 var GITHUB_TOKEN = "Y421c7222f0973fa813cb340417f656d8c4a62738";
-var AVATAR_DIR = './avatars/'
+var AVATAR_DIR = './avatars/';
 
 var options = {
     headers: {
@@ -33,9 +33,9 @@ function getAvatarInfo(error, response, body) {
     var avatarUrls = getImageURLs(info);
     console.log(avatarUrls);
     for (var key in avatarUrls){
-      imgURL = avatarUrls[key]
-      imgFilePath = `./avatars/${key}.jpg`
-      downloadImageByURL(imgURL, imgFilePath)
+      imgURL = avatarUrls[key];
+      imgFilePath = `./avatars/${key}.jpg`;
+      downloadImageByURL(imgURL, imgFilePath);
     }
   } else {
     console.log('Response Status Code: ', response.statusCode);
@@ -48,9 +48,9 @@ function getAvatarInfo(error, response, body) {
 
 function getRepoContributors(repoOwner, repoName, cb) {
   //var requestURL = 'https://'+ GITHUB_USER + ':' + GITHUB_TOKEN + '@api.github.com/repos/' + repoOwner + '/' + repoName + '/contributors';
-  var requestURL = 'https://api.github.com/repos/jquery/jquery/contributors'
+  var requestURL = 'https://api.github.com/repos/jquery/jquery/contributors';
   //console.log(requestURL)
-  options['url'] = requestURL
+  options['url'] = requestURL;
   request(options, cb);
 }
 
